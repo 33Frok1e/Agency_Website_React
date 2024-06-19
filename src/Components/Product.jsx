@@ -2,12 +2,20 @@ import React from 'react'
 import About2 from '../assets/About2.png'
 import Mercenes from '../assets/Mercenes.png'
 import { MdOutlineArrowRightAlt } from 'react-icons/md'
+import { motion } from 'framer-motion';
+import { fadeIn } from '../variant';
 
 function Product() {
   return (
     <div>
       {/* Product Text */}
-      <div className='px-4 lg:px-14 max-w-screen-2xl mx-auto my-8'>
+      <motion.div
+      variants={fadeIn('right',0.5)}
+      initial="hidden"
+      whileInView={'show'}
+      viewport={{once: false, amount: 0.7}}
+      
+      className='px-4 lg:px-14 max-w-screen-2xl mx-auto my-8'>
         <div className='md:w-11/12 mx-auto flex flex-col md:flex-row justify-between items-center gap-12'>
           <div>
             <img src={About2} alt="" />
@@ -18,11 +26,18 @@ function Product() {
             <button className='btn-primary'>Learn More</button>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Company Stats */}
-      <div className='px-4 lg:px-14 max-w-screen-2xl mx-auto my-8 bg-neutralSilver py-16'>
-        <div className='flex flex-col md:flex-row justify-between items-center gap-8'>
+      <div
+      className='px-4 lg:px-14 max-w-screen-2xl mx-auto my-8 bg-neutralSilver py-16'>
+        <motion.div
+        variants={fadeIn('left',0.5)}
+        initial="hidden"
+        whileInView={'show'}
+        viewport={{once: false, amount: 0.7}}
+        
+        className='flex flex-col md:flex-row justify-between items-center gap-8'>
           <div className='md:w-1/3 md:ml-28'>
             <img src={Mercenes} alt="" />
           </div>
@@ -48,7 +63,7 @@ function Product() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
     </div>

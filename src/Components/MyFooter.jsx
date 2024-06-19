@@ -2,12 +2,20 @@ import React from 'react'
 import { Footer } from "flowbite-react";
 import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitterX } from 'react-icons/bs';
 import Icon from '../assets/Icon.png'
+import { motion } from 'framer-motion';
+import { fadeIn } from '../variant';
 
 function MyFooter() {
   return (
     <Footer container>
       <div className="w-full">
-        <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
+        <motion.div
+        variants={fadeIn('up',0.5)}
+        initial="hidden"
+        whileInView={'show'}
+        viewport={{once: false, amount: 0.7}}
+        
+        className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div className='space-y-4 mb-8'>
           <a className='text-2xl flex items-center space-x-3 font-semibold' href=""><img className='w-7 inline-block items-center' src={Icon} alt='logo' /><span className='text-[#263238]'>QUIRKY</span></a>
           <div>
@@ -38,9 +46,15 @@ function MyFooter() {
               </Footer.LinkGroup>
             </div>
           </div>
-        </div>
+        </motion.div>
         <Footer.Divider />
-        <div className="w-full sm:flex sm:items-center sm:justify-between">
+        <motion.div
+        variants={fadeIn('down',0.5)}
+        initial="hidden"
+        whileInView={'show'}
+        viewport={{once: false, amount: 0.7}}
+        
+        className="w-full sm:flex sm:items-center sm:justify-between">
           <Footer.Copyright href="#" by="Quircky™" year={2024} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <Footer.Icon href="#" icon={BsFacebook} />
@@ -49,7 +63,7 @@ function MyFooter() {
             <Footer.Icon href="#" icon={BsGithub} />
             <Footer.Icon href="#" icon={BsDribbble} />
           </div>
-        </div>
+        </motion.div>
       </div>
     </Footer>
   )

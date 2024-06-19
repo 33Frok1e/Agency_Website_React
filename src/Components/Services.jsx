@@ -2,6 +2,8 @@ import React from 'react'
 import membership1 from '/src/assets/Membership Logo/membership1.png';
 import membership2 from '/src/assets/Membership Logo/membership2.png';
 import membership3 from '/src/assets/Membership Logo/membership3.png';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../variant';
 
 function Services() {
 
@@ -13,7 +15,13 @@ function Services() {
 
   return (
     <div className='md:px-14 px-4 py-16 max-w-screen-2xl mx-auto'>
-        <div className='text-center my-8'>
+        <motion.div 
+        variants={fadeIn('up',0.5)}
+        initial="hidden"
+        whileInView={'show'}
+        viewport={{once: false, amount: 0.7}}
+
+        className='text-center my-8'>
             <h2 className='text-4xl text-neutralDGrey font-semibold mb-2'>Our Clients</h2>
             <p className='text-neutralDGrey'>We have been working with some Fortune 500+ clients</p>
             
@@ -27,16 +35,28 @@ function Services() {
                 <img src="/src/assets/Company Logo/Company6.png" alt="" />
                 <img src="/src/assets/Company Logo/Company3.png" alt="" />
             </div>
-        </div>
+        </motion.div>
 
         {/* services card */}
-        <div className='mt-20 md:w-1/2 mx-auto text-center'>
+        <motion.div
+        variants={fadeIn('left',0.5)}
+        initial="hidden"
+        whileInView={'show'}
+        viewport={{once: false, amount: 0.7}}
+
+        className='mt-20 md:w-1/2 mx-auto text-center'>
             <h2 className='text-4xl text-neutralDGrey font-semibold mb-3'>Manage your entire community in a single system</h2>
             <p className='text-neutralDGrey'>Who is Quirky suitable for?</p>
-        </div>
+        </motion.div>
 
         {/* Cards */}
-        <div className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12'>
+        <motion.div
+        variants={fadeIn('right',0.7)}
+        initial="hidden"
+        whileInView={'show'}
+        viewport={{once: false, amount: 0.7}}
+        
+        className='mt-14 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 md:w-11/12 mx-auto gap-12'>
             {
                 services.map(service => <div key={service.id} className='px-4 py-8 text-center md:w-[300px] mx-auto md:h-80 rounded-md shadow cursor-pointer hover:-translate-x-4 hover:border-b-4 hover:border-indigo-700 transition-all duration-300 flex items-center justify-center h-full'>
                     <div>
@@ -46,7 +66,7 @@ function Services() {
                     </div>
                 </div>)
             }
-        </div>
+        </motion.div>
 
     </div>
   )
